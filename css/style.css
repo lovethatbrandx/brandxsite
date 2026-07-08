@@ -276,6 +276,7 @@ body {
     font-size: 3.5rem;
     color: #fff;
     letter-spacing: 5px;
+    word-spacing: -5px;
 }
 
 /* --- Typewriter Text --- */

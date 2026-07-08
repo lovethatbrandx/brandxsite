@@ -109,9 +109,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     // After cursor fades out, push text to center
                     setTimeout(() => {
                         const logoBox = document.querySelector('.logo-box');
-                        const boxWidth = logoBox.offsetWidth;
+                        const style = getComputedStyle(logoBox);
+                        const paddingLeft = parseFloat(style.paddingLeft);
+                        const paddingRight = parseFloat(style.paddingRight);
+                        const contentWidth = logoBox.offsetWidth - paddingLeft - paddingRight;
                         const textWidth = textSpan.offsetWidth;
-                        const offset = (boxWidth - textWidth) / 2;
+                        const offset = (contentWidth - textWidth) / 2;
                         textSpan.style.transform = `translateX(${offset}px)`;
                     }, 600);
                 }, 2500);
