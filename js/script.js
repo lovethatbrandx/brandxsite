@@ -105,18 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     cursorSpan.classList.remove('blink');
                     cursorSpan.classList.add('fade');
-
-                    // After cursor fades out, push text to center
-                    setTimeout(() => {
-                        const logoBox = document.querySelector('.logo-box');
-                        const style = getComputedStyle(logoBox);
-                        const paddingLeft = parseFloat(style.paddingLeft);
-                        const paddingRight = parseFloat(style.paddingRight);
-                        const contentWidth = logoBox.clientWidth - paddingLeft - paddingRight;
-                        const textWidth = textSpan.offsetWidth;
-                        const offset = (contentWidth - textWidth) / 2;
-                        textSpan.style.transform = `translateX(${offset}px)`;
-                    }, 600);
                 }, 2500);
             }
         };
