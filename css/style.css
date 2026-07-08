@@ -213,6 +213,18 @@ body {
     color: #fff;
 }
 
+.project-link {
+    color: #00ff41;
+    text-decoration: none;
+    border-bottom: 1px dashed #00ff41;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.project-link:hover {
+    color: #39ff14;
+    border-bottom-color: #39ff14;
+}
+
 .project-desc {
     color: #ccc;
     font-size: 0.9rem;
@@ -254,7 +266,9 @@ body {
 .logo-box {
     background-color: #000;
     padding: 20px;
-    display: inline-block;
+    display: block;
+    width: 100%;
+    text-align: left;
     border: 3px solid #fff;
 }
 
@@ -262,6 +276,12 @@ body {
     font-size: 3.5rem;
     color: #fff;
     letter-spacing: 5px;
+}
+
+/* --- Typewriter Text --- */
+.type-text {
+    display: inline-block;
+    transition: opacity 0.4s ease;
 }
 
 /* --- Responsive --- */

@@ -8,10 +8,12 @@
 const projectsData = [
     {
         title: "Hombre",
+        url: "https://github.com/lovethatbrandx/hombre",
         description: "A self-hosted web UI for Honcho, because the official dashboard isn't self-hostable."
     },
     {
         title: "PolitiScrape: Political Speech Archive → LLM Dataset Builder",
+        url: "https://github.com/lovethatbrandx/poltiscrape",
         description: "PolitiTweet hasn't updated since 2023. That's exactly why this tool exists."
     },
 	{
@@ -31,12 +33,16 @@ const githubData = {
 
 // --- Render Functions ---
 function renderProjects(projects) {
-    return projects.map(project => `
+    return projects.map(project => {
+        const titleContent = project.url
+            ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer" class="project-link">${project.title}</a>`
+            : project.title;
+        return `
         <li>
-            <div class="project-title terminal-text">${project.title}</div>
+            <div class="project-title terminal-text">${titleContent}</div>
             <div class="project-desc terminal-text">${project.description}</div>
-        </li>
-    `).join('');
+        </li>`;
+    }).join('');
 }
 
 function renderContact(info) {
@@ -99,6 +105,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     cursorSpan.classList.remove('blink');
                     cursorSpan.classList.add('fade');
+
+                    // After cursor fades out, crossfade text to center
+                    setTimeout(() => {
+                        const logoBox = document.querySelector('.logo-box');
+                        textSpan.style.opacity = '0';
+                        setTimeout(() => {
+                            logoBox.style.textAlign = 'center';
+                            textSpan.style.opacity = '1';
+                        }, 400);
+                    }, 600);
                 }, 2500);
             }
         };
