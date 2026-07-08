@@ -266,8 +266,8 @@ body {
 .logo-box {
     background-color: #000;
     padding: 20px;
-    display: block;
-    width: 100%;
+    display: inline-block;
+    min-width: 340px;
     text-align: left;
     border: 3px solid #fff;
 }
@@ -281,7 +281,7 @@ body {
 /* --- Typewriter Text --- */
 .type-text {
     display: inline-block;
-    transition: opacity 0.4s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* --- Responsive --- */

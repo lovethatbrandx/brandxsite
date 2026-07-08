@@ -106,14 +106,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     cursorSpan.classList.remove('blink');
                     cursorSpan.classList.add('fade');
 
-                    // After cursor fades out, crossfade text to center
+                    // After cursor fades out, push text to center
                     setTimeout(() => {
                         const logoBox = document.querySelector('.logo-box');
-                        textSpan.style.opacity = '0';
-                        setTimeout(() => {
-                            logoBox.style.textAlign = 'center';
-                            textSpan.style.opacity = '1';
-                        }, 400);
+                        const boxWidth = logoBox.offsetWidth;
+                        const textWidth = textSpan.offsetWidth;
+                        const offset = (boxWidth - textWidth) / 2;
+                        textSpan.style.transform = `translateX(${offset}px)`;
                     }, 600);
                 }, 2500);
             }
